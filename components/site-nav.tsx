@@ -1,6 +1,8 @@
 import { Snowflake } from 'lucide-react'
 
 const links = [
+  { href: '#showcase', label: 'Showcase' },
+  { href: '#process', label: 'Science' },
   { href: '#opportunity', label: 'Opportunity' },
   { href: '#financials', label: 'Financials' },
   { href: '#capex', label: 'CAPEX' },

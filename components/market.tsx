@@ -1,6 +1,6 @@
 import { SectionHeading } from '@/components/section-heading'
 import { Reveal } from '@/components/reveal'
-import { Car, BatteryCharging, Ship, Plane, Factory } from 'lucide-react'
+import { Car, BatteryCharging, Ship, Plane, Factory, Sparkles, Anchor, ShieldCheck } from 'lucide-react'
 
 const automotive = [
   {
@@ -18,7 +18,7 @@ const automotive = [
 const commercial = [
   {
     icon: Ship,
-    title: 'Marine',
+    title: 'Marine & Yachting',
     body: 'Salt, biofouling, and corrosion stripped from yacht hulls, engines, and deck hardware without abrasive damage or chemical runoff into the water.',
   },
   {
@@ -71,8 +71,8 @@ export function Market() {
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <SectionHeading
           eyebrow="Market Opportunity"
-          title={<>Two high-value niches</>}
-          description="BLSTX capitalizes on Dubai's premium automotive density and increasingly strict environmental mandates on commercial waste and water usage."
+          title={<>Multi-Niche High Margin Scalability</>}
+          description="BLSTX capitalizes on Dubai's premium automotive density, mega-yacht marinas, regional aerospace hubs, and strict environmental mandates on commercial waste and water usage."
         />
 
         <div className="mt-14 grid gap-6 lg:grid-cols-2">
@@ -80,7 +80,61 @@ export function Market() {
             <NicheCard label="Automotive precision" items={automotive} />
           </Reveal>
           <Reveal delay={120}>
-            <NicheCard label="Commercial scalability" items={commercial} />
+            <NicheCard label="Commercial & Marine scalability" items={commercial} />
+          </Reveal>
+        </div>
+
+        {/* Visual Sector Gallery Cards */}
+        <div className="mt-8 grid gap-6 md:grid-cols-3">
+          <Reveal delay={60}>
+            <div className="group relative overflow-hidden rounded-3xl border border-border/70 bg-card/40 backdrop-blur transition-all hover:border-cyan-400/50 hover:shadow-xl">
+              <img
+                src="/images/supercar-undercarriage.jpg"
+                alt="Bugatti hypercar undercarriage detailing"
+                className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="p-5">
+                <span className="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-300 uppercase tracking-wider">
+                  <Car className="size-3.5" /> Automotive Preserves
+                </span>
+                <h4 className="mt-1 font-bold text-foreground">Hypercar &amp; Classic Detailing</h4>
+                <p className="mt-1 text-xs text-muted-foreground">AED 2,500 – AED 6,500 average job ticket</p>
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={120}>
+            <div className="group relative overflow-hidden rounded-3xl border border-border/70 bg-card/40 backdrop-blur transition-all hover:border-cyan-400/50 hover:shadow-xl">
+              <img
+                src="/images/marine-yacht.jpg"
+                alt="Dubai superyacht dry ice teak cleaning"
+                className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="p-5">
+                <span className="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-300 uppercase tracking-wider">
+                  <Anchor className="size-3.5" /> Superyacht Marine
+                </span>
+                <h4 className="mt-1 font-bold text-foreground">Hull &amp; Teak Restoration</h4>
+                <p className="mt-1 text-xs text-muted-foreground">Zero chemical runoff in Dubai Marina</p>
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={180}>
+            <div className="group relative overflow-hidden rounded-3xl border border-border/70 bg-card/40 backdrop-blur transition-all hover:border-cyan-400/50 hover:shadow-xl">
+              <img
+                src="/images/aviation-jet.jpg"
+                alt="Private jet turbine dry ice maintenance"
+                className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="p-5">
+                <span className="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-300 uppercase tracking-wider">
+                  <Plane className="size-3.5" /> Aerospace &amp; Jets
+                </span>
+                <h4 className="mt-1 font-bold text-foreground">Turbine &amp; Airframe Cleaning</h4>
+                <p className="mt-1 text-xs text-muted-foreground">Non-conductive, non-abrasive certification</p>
+              </div>
+            </div>
           </Reveal>
         </div>
 
