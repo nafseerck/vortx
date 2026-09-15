@@ -1,4 +1,4 @@
-export const AUTH_COOKIE = "vortx_session"
+export const AUTH_COOKIE = "blstx_session"
 
 // Web Crypto is available in both the Node and Edge runtimes, so this helper
 // works from server actions and from middleware without any Node-only APIs.
@@ -21,7 +21,7 @@ export async function createSessionToken(password: string) {
     false,
     ["sign"],
   )
-  const signature = await crypto.subtle.sign("HMAC", key, new TextEncoder().encode("vortx-access-v1"))
+  const signature = await crypto.subtle.sign("HMAC", key, new TextEncoder().encode("blstx-access-v1"))
   return toHex(signature)
 }
 

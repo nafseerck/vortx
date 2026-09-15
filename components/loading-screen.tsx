@@ -32,7 +32,7 @@ export function LoadingScreen() {
           <span className="absolute inset-0 rounded-full ring-1 ring-primary/40" />
           <Snowflake className="size-8 animate-spin text-primary [animation-duration:3s]" />
         </span>
-        <p className="mt-6 font-display text-2xl font-bold tracking-[0.35em] text-foreground">VORTX</p>
+        <p className="mt-6 font-display text-2xl font-bold tracking-[0.35em] text-foreground">BLSTX</p>
         <div className="mt-4 h-px w-40 overflow-hidden bg-border/60">
           <div className="h-full w-full origin-left animate-[loadbar_1.5s_ease-in-out] bg-gradient-to-r from-primary to-accent" />
         </div>

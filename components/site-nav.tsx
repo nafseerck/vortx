@@ -16,7 +16,7 @@ export function SiteNav() {
           <span className="flex size-8 items-center justify-center rounded-full bg-primary/15 text-primary ring-1 ring-primary/30">
             <Snowflake className="size-4" aria-hidden="true" />
           </span>
-          <span className="font-display text-sm font-bold tracking-[0.2em]">VORTX</span>
+          <span className="font-display text-sm font-bold tracking-[0.2em]">BLSTX</span>
         </a>
         <nav className="hidden items-center gap-7 md:flex" aria-label="Section navigation">
           {links.map((l) => (

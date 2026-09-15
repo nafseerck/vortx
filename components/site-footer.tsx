@@ -15,7 +15,7 @@ export function SiteFooter() {
               <Snowflake className="size-6" aria-hidden="true" />
             </span>
             <h2 className="mx-auto mt-6 max-w-2xl text-balance text-3xl font-semibold sm:text-4xl">
-              Partner with VORTX at the ground floor
+              Partner with BLSTX at the ground floor
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-pretty text-muted-foreground">
               A lean, high-margin entry into Dubai&apos;s premium eco-cleaning market with a clear
@@ -23,11 +23,11 @@ export function SiteFooter() {
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a
-                href="mailto:nethincot@gmail.com"
+                href="mailto:nafseer.ceekey@gmail.com"
                 className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.03]"
               >
                 <Mail className="size-4" aria-hidden="true" />
-                nethincot@gmail.com
+                nafseer.ceekey@gmail.com
               </a>
               <a
                 href="tel:+971564393000"
@@ -55,7 +55,7 @@ export function SiteFooter() {
 
       <div className="mt-10 flex flex-col items-center justify-between gap-3 border-t border-border/50 pt-6 text-sm text-muted-foreground sm:flex-row">
         <div className="flex items-center gap-2">
-          <span className="font-display font-bold tracking-[0.2em] text-foreground">VORTX</span>
+          <span className="font-display font-bold tracking-[0.2em] text-foreground">BLSTX</span>
           <span>Dry Ice — Dubai, UAE</span>
         </div>
         <p>Investor Presentation · Phase 1 · Confidential</p>

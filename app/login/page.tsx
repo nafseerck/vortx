@@ -5,7 +5,7 @@ import { AUTH_COOKIE, expectedSessionToken } from "@/lib/auth"
 import { LoginForm } from "./login-form"
 
 export const metadata: Metadata = {
-  title: "Access Required — VORTX Dry Ice",
+  title: "Access Required — BLSTX Dry Ice",
   description: "This investor presentation is private. Enter the access password to continue.",
   robots: { index: false, follow: false },
 }
@@ -44,7 +44,7 @@ export default async function LoginPage() {
         <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur-xl shadow-2xl sm:p-10">
           <div className="mb-8 text-center">
             <p className="font-[family-name:var(--font-display)] text-xs font-semibold uppercase tracking-[0.35em] text-cyan-300/80">
-              VORTX Dry Ice
+              BLSTX Dry Ice
             </p>
             <h1 className="mt-4 font-[family-name:var(--font-display)] text-2xl font-bold text-balance bg-gradient-to-b from-white to-cyan-100/70 bg-clip-text text-transparent sm:text-3xl">
               Private Investor Presentation

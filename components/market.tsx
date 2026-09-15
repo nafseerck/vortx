@@ -72,7 +72,7 @@ export function Market() {
         <SectionHeading
           eyebrow="Market Opportunity"
           title={<>Two high-value niches</>}
-          description="VORTX capitalizes on Dubai's premium automotive density and increasingly strict environmental mandates on commercial waste and water usage."
+          description="BLSTX capitalizes on Dubai's premium automotive density and increasingly strict environmental mandates on commercial waste and water usage."
         />
 
         <div className="mt-14 grid gap-6 lg:grid-cols-2">

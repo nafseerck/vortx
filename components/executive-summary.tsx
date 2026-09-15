@@ -26,7 +26,7 @@ export function ExecutiveSummary() {
       <SectionHeading
         eyebrow="Executive Summary"
         title={<>The value proposition</>}
-        description="VORTX addresses the urgent UAE demand for specialized, zero-water, chemical-free precision cleaning — combining high-ticket automotive preservation with scalable commercial B2B maintenance contracts."
+        description="BLSTX addresses the urgent UAE demand for specialized, zero-water, chemical-free precision cleaning — combining high-ticket automotive preservation with scalable commercial B2B maintenance contracts."
       />
 
       <div className="mt-14 grid items-center gap-10 lg:grid-cols-2">

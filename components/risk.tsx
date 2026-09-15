@@ -31,7 +31,7 @@ export function Risk() {
         <SectionHeading
           eyebrow="Risk Mitigation"
           title={<>Bottlenecks, pre-empted</>}
-          description="VORTX proactively addresses potential operational bottlenecks while building rapid brand authority in the UAE market."
+          description="BLSTX proactively addresses potential operational bottlenecks while building rapid brand authority in the UAE market."
         />
 
         <div className="mt-14 grid gap-5 md:grid-cols-3">
