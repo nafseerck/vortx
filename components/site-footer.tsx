@@ -23,11 +23,11 @@ export function SiteFooter() {
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a
-                href="mailto:nafseer.ceekey@gmail.com"
+                href="mailto:nethincot@gmail.com"
                 className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.03]"
               >
                 <Mail className="size-4" aria-hidden="true" />
-                nafseer.ceekey@gmail.com
+                nethincot@gmail.com
               </a>
               <a
                 href="tel:+971564393000"
