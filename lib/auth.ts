@@ -1,4 +1,9 @@
 export const AUTH_COOKIE = "blstx_session"
+export const DEFAULT_INVESTOR_PASSWORD = "Blstxdryice@2026"
+
+export function getInvestorPassword() {
+  return process.env.SITE_PASSWORD || DEFAULT_INVESTOR_PASSWORD
+}
 
 // Web Crypto is available in both the Node and Edge runtimes, so this helper
 // works from server actions and from middleware without any Node-only APIs.
@@ -26,7 +31,6 @@ export async function createSessionToken(password: string) {
 }
 
 export async function expectedSessionToken() {
-  const password = process.env.SITE_PASSWORD
-  if (!password) return null
+  const password = getInvestorPassword()
   return createSessionToken(password)
 }
