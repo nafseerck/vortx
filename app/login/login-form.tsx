@@ -31,7 +31,6 @@ export function LoginForm() {
             className="mb-2 flex items-center justify-between font-display text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300/80"
           >
             <span>Investor Password</span>
-            <span className="text-[10px] text-white/40 lowercase tracking-normal">e.g. Blstxdryice@2026</span>
           </label>
           <input
             id="password"
