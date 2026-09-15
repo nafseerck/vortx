@@ -1,6 +1,6 @@
 import { SectionHeading } from '@/components/section-heading'
 import { Reveal } from '@/components/reveal'
-import { Car, BatteryCharging, Factory, CircuitBoard } from 'lucide-react'
+import { Car, BatteryCharging, Ship, Plane } from 'lucide-react'
 
 const automotive = [
   {
@@ -17,14 +17,14 @@ const automotive = [
 
 const commercial = [
   {
-    icon: Factory,
-    title: 'Industrial maintenance',
-    body: 'Food-processing equipment and bakery machinery require non-toxic, chemical-free cleaning solutions.',
+    icon: Ship,
+    title: 'Marine',
+    body: 'Salt, biofouling, and corrosion stripped from yacht hulls, engines, and deck hardware without abrasive damage or chemical runoff into the water.',
   },
   {
-    icon: CircuitBoard,
-    title: 'Facility assets',
-    body: 'Safe overhaul of electrical control panels, printing presses, and industrial HVAC coils without risk of electrical shorting.',
+    icon: Plane,
+    title: 'Aviation',
+    body: 'Non-abrasive, residue-free cleaning of aircraft components, turbine parts, and airframes — preserving delicate surfaces while meeting strict maintenance standards.',
   },
 ]
 

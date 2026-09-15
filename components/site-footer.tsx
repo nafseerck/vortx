@@ -1,5 +1,5 @@
 import { Reveal } from '@/components/reveal'
-import { Snowflake, Mail } from 'lucide-react'
+import { Snowflake, Mail, Phone } from 'lucide-react'
 
 export function SiteFooter() {
   return (
@@ -21,13 +21,25 @@ export function SiteFooter() {
               A lean, high-margin entry into Dubai&apos;s premium eco-cleaning market with a clear
               path to recurring B2B revenue. Let&apos;s discuss the opportunity.
             </p>
-            <a
-              href="mailto:invest@vortxdryice.com"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.03]"
-            >
-              <Mail className="size-4" aria-hidden="true" />
-              invest@vortxdryice.com
-            </a>
+            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <a
+                href="mailto:nethincot@gmail.com"
+                className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.03]"
+              >
+                <Mail className="size-4" aria-hidden="true" />
+                nethincot@gmail.com
+              </a>
+              <a
+                href="tel:+971564393000"
+                className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-card/40 px-6 py-3 text-sm font-semibold text-foreground transition-transform hover:scale-[1.03]"
+              >
+                <Phone className="size-4" aria-hidden="true" />
+                +971 56 439 3000
+              </a>
+            </div>
+            <p className="mt-6 text-sm font-medium text-accent">
+              Founder &amp; Enthusiast
+            </p>
           </div>
         </div>
       </Reveal>
