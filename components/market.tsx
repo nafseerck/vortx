@@ -1,6 +1,6 @@
 import { SectionHeading } from '@/components/section-heading'
 import { Reveal } from '@/components/reveal'
-import { Car, BatteryCharging, Ship, Plane } from 'lucide-react'
+import { Car, BatteryCharging, Ship, Plane, Factory } from 'lucide-react'
 
 const automotive = [
   {
@@ -27,6 +27,12 @@ const commercial = [
     body: 'Non-abrasive, residue-free cleaning of aircraft components, turbine parts, and airframes — preserving delicate surfaces while meeting strict maintenance standards.',
   },
 ]
+
+const industrial = {
+  icon: Factory,
+  title: 'Industrial maintenance',
+  body: 'Recurring B2B contracts for machinery, molds, and production equipment — dry-ice blasting removes grease, residue, and buildup with zero disassembly and no secondary waste, keeping lines running with minimal downtime.',
+}
 
 function NicheCard({
   label,
@@ -77,6 +83,24 @@ export function Market() {
             <NicheCard label="Commercial scalability" items={commercial} />
           </Reveal>
         </div>
+
+        <Reveal delay={80} className="mt-6">
+          <div className="rounded-3xl border border-border/60 bg-card/50 p-6 backdrop-blur sm:p-8">
+            <h3 className="mb-6 flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.2em] text-accent">
+              <span className="h-px w-6 bg-accent/60" aria-hidden="true" />
+              Recurring revenue
+            </h3>
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+              <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-secondary text-primary">
+                <industrial.icon className="size-5" aria-hidden="true" />
+              </span>
+              <div>
+                <h4 className="font-semibold">{industrial.title}</h4>
+                <p className="mt-1 max-w-3xl text-sm leading-relaxed text-muted-foreground">{industrial.body}</p>
+              </div>
+            </div>
+          </div>
+        </Reveal>
 
         <Reveal delay={100} className="mt-6">
           <div className="glow-ring relative overflow-hidden rounded-3xl border border-border/60">

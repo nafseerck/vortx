@@ -1,5 +1,5 @@
 import { Reveal } from '@/components/reveal'
-import { Snowflake, Mail, Phone } from 'lucide-react'
+import { Snowflake, Mail, Phone, MessageCircle } from 'lucide-react'
 
 export function SiteFooter() {
   return (
@@ -34,7 +34,16 @@ export function SiteFooter() {
                 className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-card/40 px-6 py-3 text-sm font-semibold text-foreground transition-transform hover:scale-[1.03]"
               >
                 <Phone className="size-4" aria-hidden="true" />
-                +971 56 439 3000
+                Call +971 56 439 3000
+              </a>
+              <a
+                href="https://wa.me/971564393000"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-emerald-400/40 bg-emerald-500/10 px-6 py-3 text-sm font-semibold text-emerald-300 transition-transform hover:scale-[1.03]"
+              >
+                <MessageCircle className="size-4" aria-hidden="true" />
+                Chat on WhatsApp
               </a>
             </div>
             <p className="mt-6 text-sm font-medium text-accent">
