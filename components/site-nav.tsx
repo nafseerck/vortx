@@ -1,4 +1,4 @@
-import { Snowflake } from 'lucide-react'
+import { PelletsLogoIcon } from '@/components/pellets-logo-icon'
 
 const links = [
   { href: '#showcase', label: 'Showcase' },
@@ -16,7 +16,7 @@ export function SiteNav() {
       <div className="mx-auto mt-4 flex max-w-6xl items-center justify-between rounded-full border border-border/70 bg-background/70 px-4 py-2.5 backdrop-blur-xl sm:px-6">
         <a href="#top" className="flex items-center gap-2">
           <span className="flex size-8 items-center justify-center rounded-full bg-primary/15 text-primary ring-1 ring-primary/30">
-            <Snowflake className="size-4" aria-hidden="true" />
+            <PelletsLogoIcon size={18} aria-hidden="true" />
           </span>
           <span className="font-display text-sm font-bold tracking-[0.2em]">BLSTX</span>
         </a>

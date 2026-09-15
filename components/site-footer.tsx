@@ -1,5 +1,6 @@
 import { Reveal } from '@/components/reveal'
-import { Snowflake, Mail, Phone, MessageCircle } from 'lucide-react'
+import { Mail, Phone, MessageCircle, Sparkles } from 'lucide-react'
+import { PelletsLogoIcon } from '@/components/pellets-logo-icon'
 
 export function SiteFooter() {
   return (
@@ -11,16 +12,17 @@ export function SiteFooter() {
             aria-hidden="true"
           />
           <div className="relative">
-            <span className="mx-auto flex size-12 items-center justify-center rounded-full bg-primary/20 text-primary ring-1 ring-primary/40">
-              <Snowflake className="size-6" aria-hidden="true" />
+            <span className="mx-auto flex size-14 items-center justify-center rounded-2xl bg-primary/20 text-primary ring-1 ring-primary/40 shadow-xl shadow-cyan-950/40 backdrop-blur">
+              <PelletsLogoIcon size={30} aria-hidden="true" />
             </span>
-            <h2 className="mx-auto mt-6 max-w-2xl text-balance text-3xl font-semibold sm:text-4xl">
+            <h2 className="mx-auto mt-6 max-w-2xl text-balance text-3xl font-bold sm:text-4xl">
               Partner with BLSTX at the ground floor
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-pretty text-muted-foreground">
               A lean, high-margin entry into Dubai&apos;s premium eco-cleaning market with a clear
               path to recurring B2B revenue. Let&apos;s discuss the opportunity.
             </p>
+
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a
                 href="mailto:nethincot@gmail.com"
@@ -46,15 +48,19 @@ export function SiteFooter() {
                 Chat on WhatsApp
               </a>
             </div>
-            <p className="mt-6 text-sm font-medium text-accent">
-              Founder &amp; Enthusiast
-            </p>
+
+            {/* Bold Founder & Enthusiast Badge */}
+            <div className="mt-10 inline-flex items-center gap-2 rounded-full border border-cyan-400/40 bg-cyan-950/50 px-6 py-2.5 text-xs sm:text-sm font-extrabold uppercase tracking-[0.25em] text-cyan-300 shadow-xl shadow-cyan-950/60 backdrop-blur-md transition-all hover:scale-105 hover:border-cyan-300">
+              <Sparkles className="size-4 text-cyan-400" />
+              <span>Founder &amp; Enthusiast</span>
+            </div>
           </div>
         </div>
       </Reveal>
 
       <div className="mt-10 flex flex-col items-center justify-between gap-3 border-t border-border/50 pt-6 text-sm text-muted-foreground sm:flex-row">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2.5">
+          <PelletsLogoIcon size={20} aria-hidden="true" />
           <span className="font-display font-bold tracking-[0.2em] text-foreground">BLSTX</span>
           <span>Dry Ice — Dubai, UAE</span>
         </div>

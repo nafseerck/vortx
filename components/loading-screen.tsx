@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Snowflake } from 'lucide-react'
+import { PelletsLogoIcon } from '@/components/pellets-logo-icon'
 
 export function LoadingScreen() {
   const [done, setDone] = useState(false)
@@ -30,7 +30,7 @@ export function LoadingScreen() {
         <span className="relative flex size-16 items-center justify-center">
           <span className="absolute inset-0 animate-ping rounded-full bg-primary/30" />
           <span className="absolute inset-0 rounded-full ring-1 ring-primary/40" />
-          <Snowflake className="size-8 animate-spin text-primary [animation-duration:3s]" />
+          <PelletsLogoIcon size={32} className="animate-pulse" />
         </span>
         <p className="mt-6 font-display text-2xl font-bold tracking-[0.35em] text-foreground">BLSTX</p>
         <div className="mt-4 h-px w-40 overflow-hidden bg-border/60">
