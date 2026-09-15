@@ -39,7 +39,7 @@ export function Capex() {
               <div className="text-xs uppercase tracking-wider text-muted-foreground">
                 Total CAPEX
               </div>
-              <div className="font-display text-3xl font-bold text-primary">~AED 130,000</div>
+              <div className="font-display text-3xl font-bold text-primary">~AED 150,000</div>
             </div>
           </Reveal>
         </div>
