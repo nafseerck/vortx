@@ -1,29 +1,10 @@
 import { SectionHeading } from '@/components/section-heading'
 import { Reveal } from '@/components/reveal'
-import { Gauge, Zap, Warehouse } from 'lucide-react'
-
-const items = [
-  {
-    icon: Gauge,
-    name: 'Atlas Copco GA22VSDFF',
-    desc: '22 kW VSD compressor with integrated dryer & filter, ensuring continuous dry-air supply.',
-    cost: 'AED 43,050',
-  },
-  {
-    icon: Zap,
-    name: 'CMW ATX25E v2 Blasting Unit',
-    desc: 'Heavy-duty precision blasting machine — the operational core of every job.',
-    cost: 'AED 40,400',
-  },
-  {
-    icon: Warehouse,
-    name: 'Facility setup',
-    desc: 'Warehouse retrofit: 3-phase electrical upgrades, soundproofing, and deposit.',
-    cost: 'AED 35,000',
-  },
-]
+import { CAPEX_DATA, getFinancialModel } from '@/lib/financials'
 
 export function Capex() {
+  const model = getFinancialModel()
+
   return (
     <section id="capex" className="relative overflow-hidden py-24 sm:py-32">
       <div className="bg-grid absolute inset-0 -z-10 opacity-60" aria-hidden="true" />
@@ -39,13 +20,15 @@ export function Capex() {
               <div className="text-xs uppercase tracking-wider text-muted-foreground">
                 Total CAPEX
               </div>
-              <div className="font-display text-3xl font-bold text-primary">~AED 150,000</div>
+              <div className="font-display text-3xl font-bold text-primary">
+                ~AED {model.roundedCapexDisplay.toLocaleString()}
+              </div>
             </div>
           </Reveal>
         </div>
 
         <div className="mt-14 grid gap-5 md:grid-cols-3">
-          {items.map((it, i) => (
+          {CAPEX_DATA.items.map((it, i) => (
             <Reveal key={it.name} delay={i * 90}>
               <div className="group flex h-full flex-col rounded-2xl border border-border/60 bg-card/50 p-6 backdrop-blur transition-colors hover:border-primary/40">
                 <span className="mb-5 flex size-12 items-center justify-center rounded-xl bg-primary/12 text-primary ring-1 ring-primary/25">
@@ -56,7 +39,7 @@ export function Capex() {
                   {it.desc}
                 </p>
                 <div className="mt-5 border-t border-border/50 pt-4 font-display text-xl font-bold text-foreground">
-                  {it.cost}
+                  AED {it.costAmount.toLocaleString()}
                 </div>
               </div>
             </Reveal>
