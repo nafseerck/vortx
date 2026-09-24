@@ -1,39 +1,42 @@
 import { SectionHeading } from '@/components/section-heading'
 import { Reveal } from '@/components/reveal'
-
-const stats = [
-  { value: 'AED 1.5k', label: 'Avg. ticket price' },
-  { value: '30', label: 'Target jobs / month' },
-  { value: 'AED 45k', label: 'Monthly target revenue' },
-]
-
-const rows = [
-  {
-    metric: 'Target volume',
-    figure: '30 jobs / month',
-    insight:
-      'Highly conservative baseline (≈ 1 job/day). Leaves massive overhead capacity for Phase 2 scaling.',
-  },
-  {
-    metric: 'Capped OPEX',
-    figure: 'AED 27,500 / month',
-    insight:
-      'Lean operations prioritizing fixed costs: warehouse lease & utilities strictly capped at AED 5,000 in industrial zones.',
-  },
-  {
-    metric: 'Net profit (monthly)',
-    figure: 'AED 17,500 / month',
-    insight: 'Yields an exceptionally strong ~38.8% operating profit margin.',
-  },
-  {
-    metric: 'Breakeven horizon',
-    figure: '7 – 8 months',
-    insight:
-      'Rapid payback driven by high margins and low capital risk (assets hold strong resale value).',
-  },
-]
+import { getFinancialModel, FINANCIAL_OPERATIONS_DATA } from '@/lib/financials'
 
 export function Financials() {
+  const model = getFinancialModel()
+
+  const stats = [
+    { value: `AED ${(FINANCIAL_OPERATIONS_DATA.avgTicketPrice / 1000).toFixed(1)}k`, label: 'Avg. ticket price' },
+    { value: `${FINANCIAL_OPERATIONS_DATA.targetJobsPerMonth}`, label: 'Target jobs / month' },
+    { value: `AED ${(model.monthlyTargetRevenue / 1000).toFixed(0)}k`, label: 'Monthly target revenue' },
+  ]
+
+  const rows = [
+    {
+      metric: 'Target volume',
+      figure: `${FINANCIAL_OPERATIONS_DATA.targetJobsPerMonth} jobs / month`,
+      insight:
+        'Highly conservative baseline (≈ 1 job/day). Leaves massive overhead capacity for Phase 2 scaling.',
+    },
+    {
+      metric: 'Capped OPEX',
+      figure: `AED ${FINANCIAL_OPERATIONS_DATA.cappedMonthlyOpex.toLocaleString()} / month`,
+      insight:
+        `Lean operations prioritizing fixed costs: warehouse lease & utilities strictly capped at AED ${FINANCIAL_OPERATIONS_DATA.fixedLeaseCap.toLocaleString()} in industrial zones.`,
+    },
+    {
+      metric: 'Net profit (monthly)',
+      figure: `AED ${model.monthlyNetProfit.toLocaleString()} / month`,
+      insight: `Yields an exceptionally strong ~${model.operatingProfitMargin}% operating profit margin.`,
+    },
+    {
+      metric: 'Breakeven horizon',
+      figure: model.breakevenHorizon,
+      insight:
+        'Rapid payback driven by high margins and low capital risk (assets hold strong resale value).',
+    },
+  ]
+
   return (
     <section id="financials" className="relative mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
       <SectionHeading
