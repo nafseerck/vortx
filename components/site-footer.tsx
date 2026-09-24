@@ -16,7 +16,7 @@ export function SiteFooter() {
               <PelletsLogoIcon size={30} aria-hidden="true" />
             </span>
             <h2 className="mx-auto mt-6 max-w-2xl text-balance text-3xl font-bold sm:text-4xl">
-              Partner with BLSTX at the ground floor
+              Partner with BLASTX at the ground floor
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-pretty text-muted-foreground">
               A lean, high-margin entry into Dubai&apos;s premium eco-cleaning market with a clear
@@ -61,7 +61,7 @@ export function SiteFooter() {
       <div className="mt-10 flex flex-col items-center justify-between gap-3 border-t border-border/50 pt-6 text-sm text-muted-foreground sm:flex-row">
         <div className="flex items-center gap-2.5">
           <PelletsLogoIcon size={20} aria-hidden="true" />
-          <span className="font-display font-bold tracking-[0.2em] text-foreground">BLSTX</span>
+          <span className="font-display font-bold tracking-[0.2em] text-foreground">BLASTX</span>
           <span>Dry Ice — Dubai, UAE</span>
         </div>
         <p>Investor Presentation · Phase 1 · Confidential</p>

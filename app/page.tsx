@@ -1,42 +1,40 @@
+import type { Metadata } from 'next'
 import { SiteNav } from '@/components/site-nav'
-import { Hero } from '@/components/hero'
-import { BeforeAfterSlider } from '@/components/before-after'
-import { ShowcaseSlider } from '@/components/showcase-slider'
-import { Process } from '@/components/process'
-import { ExecutiveSummary } from '@/components/executive-summary'
-import { Market } from '@/components/market'
-import { Financials } from '@/components/financials'
-import { Capex } from '@/components/capex'
-import { Operations } from '@/components/operations'
-import { Risk } from '@/components/risk'
-import { Roadmap } from '@/components/roadmap'
+import { IntroVideoHero } from '@/components/intro-video-hero'
 import { SiteFooter } from '@/components/site-footer'
+import CustomersPage from '@/app/customers/page'
+
+/**
+ * CONFIGURATION FLAG FOR BUSINESS LAUNCH:
+ * 
+ * - `false` (Pre-launch mode - CURRENT):
+ *   Visiting `/` displays the Intro Video presentation & portal selector (Investor vs Client).
+ * 
+ * - `true` (Post-launch mode):
+ *   Visiting `/` directly renders the Client Area website.
+ * 
+ * In both cases, the Investor Portal remains permanently accessible at:
+ *   - `/investor-area`
+ *   - `/investor`
+ */
+const LAUNCHED_BUSINESS = false
+
+export const metadata: Metadata = {
+  title: 'BLASTX Dry Ice — Precision Eco-Cleaning & Detailing | Dubai, UAE',
+  description:
+    'BLASTX is Dubai’s premier zero-water, chemical-free precision eco-cleaning service for hypercars, superyachts, aviation, and industrial maintenance.',
+}
 
 export default function Page() {
+  if (LAUNCHED_BUSINESS) {
+    return <CustomersPage />
+  }
+
   return (
-    <main className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
-      <SiteNav />
-      <Hero />
-      
-      {/* Interactive Sublimation Reveal Slider */}
-      <section className="relative z-10 -mt-10 px-5 sm:px-8">
-        <BeforeAfterSlider />
-      </section>
-
-      {/* Multi-Slide Interactive Showcase Gallery */}
-      <ShowcaseSlider />
-
-      {/* The Science of Dry Ice Blasting */}
-      <Process />
-
-      <ExecutiveSummary />
-      <Market />
-      <Financials />
-      <Capex />
-      <Operations />
-      <Risk />
-      <Roadmap />
-      <SiteFooter />
+    <main className="relative min-h-screen overflow-x-hidden bg-background text-foreground flex flex-col justify-between">
+      {/* <SiteNav mode="intro" /> */}
+      <IntroVideoHero />
+      {/* <SiteFooter /> */}
     </main>
   )
 }

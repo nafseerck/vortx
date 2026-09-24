@@ -131,7 +131,7 @@ export function ShowcaseSlider() {
       <SectionHeading
         eyebrow="Interactive Showcase"
         title={<>Multi-Sector Precision Detailing</>}
-        description="Explore BLSTX's high-margin applications across hypercars, luxury marine, aviation, and industrial maintenance."
+        description="Explore BLASTX's high-margin applications across hypercars, luxury marine, aviation, and industrial maintenance."
       />
 
       {/* Category Filter Pills */}

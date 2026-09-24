@@ -15,9 +15,9 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'BLSTX Dry Ice — Precision Eco-Cleaning | Investor Presentation',
+  title: 'BLASTX Dry Ice — Precision Eco-Cleaning | Investor Presentation',
   description:
-    'BLSTX is Dubai’s premier zero-water, chemical-free precision eco-cleaning and industrial detailing service. Investor presentation, Phase 1.',
+    'BLASTX is Dubai’s premier zero-water, chemical-free precision eco-cleaning and industrial detailing service. Investor presentation, Phase 1.',
   generator: 'v0.app',
   icons: {
     icon: [

@@ -72,7 +72,7 @@ export function Market() {
         <SectionHeading
           eyebrow="Market Opportunity"
           title={<>Multi-Niche High Margin Scalability</>}
-          description="BLSTX capitalizes on Dubai's premium automotive density, mega-yacht marinas, regional aerospace hubs, and strict environmental mandates on commercial waste and water usage."
+          description="BLASTX capitalizes on Dubai's premium automotive density, mega-yacht marinas, regional aerospace hubs, and strict environmental mandates on commercial waste and water usage."
         />
 
         <div className="mt-14 grid gap-6 lg:grid-cols-2">

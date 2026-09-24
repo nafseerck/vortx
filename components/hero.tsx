@@ -42,7 +42,7 @@ export function Hero() {
         </div>
 
         <h1 className="mt-6 max-w-3xl text-balance text-5xl font-extrabold leading-[0.95] sm:text-7xl md:text-8xl">
-          <span className="text-gradient-ice drop-shadow-[0_0_35px_rgba(34,211,238,0.35)]">BLSTX</span>
+          <span className="text-gradient-ice drop-shadow-[0_0_35px_rgba(34,211,238,0.35)]">BLASTX</span>
           <span className="block text-foreground mt-1">Dry Ice</span>
         </h1>
 

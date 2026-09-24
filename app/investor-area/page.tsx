@@ -4,21 +4,25 @@ import { Hero } from '@/components/hero'
 import { BeforeAfterSlider } from '@/components/before-after'
 import { ShowcaseSlider } from '@/components/showcase-slider'
 import { Process } from '@/components/process'
+import { ExecutiveSummary } from '@/components/executive-summary'
 import { Market } from '@/components/market'
+import { Financials } from '@/components/financials'
+import { Capex } from '@/components/capex'
 import { Operations } from '@/components/operations'
 import { Risk } from '@/components/risk'
+import { Roadmap } from '@/components/roadmap'
 import { SiteFooter } from '@/components/site-footer'
 
 export const metadata: Metadata = {
-  title: 'BLASTX Dry Ice — Precision Eco-Cleaning & Detailing | Dubai, UAE',
+  title: 'BLASTX Dry Ice — Investor Area & Business Model | Dubai, UAE',
   description:
-    'BLASTX is Dubai’s premier zero-water, chemical-free precision eco-cleaning service for hypercars, superyachts, aviation, and industrial maintenance.',
+    'Investor pitch deck and operational breakdown for BLASTX Dry Ice — Dubai’s premier eco-cleaning & industrial detailing enterprise.',
 }
 
-export default function CustomersPage() {
+export default function InvestorAreaPage() {
   return (
     <main className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
-      <SiteNav mode="customer" />
+      <SiteNav mode="investor" />
       <Hero />
 
       {/* Interactive Sublimation Reveal Slider */}
@@ -26,22 +30,19 @@ export default function CustomersPage() {
         <BeforeAfterSlider />
       </section>
 
-      {/* Multi-Slide Sector Showcase */}
+      {/* Multi-Slide Interactive Showcase Gallery */}
       <ShowcaseSlider />
 
-      {/* The Science of Dry Ice Sublimation */}
+      {/* The Science of Dry Ice Blasting */}
       <Process />
 
-      {/* Market Services */}
+      <ExecutiveSummary />
       <Market />
-
-      {/* Operations & Pre-Service Inspection Protocol */}
+      <Financials />
+      <Capex />
       <Operations />
-
-      {/* Quality & Safety Risk Pre-emption */}
       <Risk />
-
-      {/* Footer */}
+      <Roadmap />
       <SiteFooter />
     </main>
   )

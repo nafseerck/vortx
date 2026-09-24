@@ -42,7 +42,6 @@ export function Process() {
 
           <div>
             <SectionHeading
-              align="left"
               eyebrow="The Science"
               title={<>Clean by physics, not chemicals</>}
               description="Dry-ice blasting uses temperature and kinetic energy — no water, no solvents, no abrasion. Here's how a single pass works."

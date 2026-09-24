@@ -16,15 +16,15 @@ export function PelletsLogoIcon({ size = 24, className = '', ...props }: LogoIco
       {...props}
     >
       <defs>
-        <linearGradient id="blstx-pellet-grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <linearGradient id="blastx-pellet-grad1" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#38bdf8" />
           <stop offset="100%" stopColor="#0284c7" />
         </linearGradient>
-        <linearGradient id="blstx-pellet-grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <linearGradient id="blastx-pellet-grad2" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#a5f3fc" />
           <stop offset="100%" stopColor="#06b6d4" />
         </linearGradient>
-        <filter id="blstx-glow" x="-20%" y="-20%" width="140%" height="140%">
+        <filter id="blastx-glow" x="-20%" y="-20%" width="140%" height="140%">
           <feGaussianBlur stdDeviation="1" result="blur" />
           <feComposite in="SourceGraphic" in2="blur" operator="over" />
         </filter>
@@ -53,10 +53,10 @@ export function PelletsLogoIcon({ size = 24, className = '', ...props }: LogoIco
         width="6"
         height="11"
         rx="3"
-        fill="url(#blstx-pellet-grad1)"
+        fill="url(#blastx-pellet-grad1)"
         stroke="#e0f2fe"
         strokeWidth="1"
-        filter="url(#blstx-glow)"
+        filter="url(#blastx-glow)"
       />
       <ellipse cx="12" cy="7.5" rx="3" ry="1.2" fill="#e0f2fe" opacity="0.9" />
 
@@ -67,7 +67,7 @@ export function PelletsLogoIcon({ size = 24, className = '', ...props }: LogoIco
         width="4.5"
         height="8"
         rx="2.25"
-        fill="url(#blstx-pellet-grad2)"
+        fill="url(#blastx-pellet-grad2)"
         stroke="#bae6fd"
         strokeWidth="0.8"
         transform="rotate(-20 7.75 15)"
@@ -89,7 +89,7 @@ export function PelletsLogoIcon({ size = 24, className = '', ...props }: LogoIco
         width="5"
         height="9"
         rx="2.5"
-        fill="url(#blstx-pellet-grad1)"
+        fill="url(#blastx-pellet-grad1)"
         stroke="#7dd3fc"
         strokeWidth="0.8"
         transform="rotate(15 16.5 13.5)"

@@ -1,22 +1,22 @@
 import type { Metadata } from "next"
 import { cookies } from "next/headers"
 import { redirect } from "next/navigation"
-import { INVESTOR_AUTH_COOKIE, expectedInvestorSessionToken } from "@/lib/auth"
-import { LoginForm } from "./login-form"
+import { CUSTOMER_AUTH_COOKIE, expectedCustomerSessionToken } from "@/lib/auth"
+import { CustomerLoginForm } from "./login-customer-form"
 import { PelletsLogoIcon } from "@/components/pellets-logo-icon"
 
 export const metadata: Metadata = {
-  title: "Investor Access Required — BLASTX Dry Ice",
-  description: "Private Investor Presentation for BLASTX Dry Ice Dubai. Password required for financial models & CAPEX.",
+  title: "Customer Access Required — BLASTX Dry Ice",
+  description: "Customer Access Portal for BLASTX Dry Ice Dubai.",
   robots: { index: false, follow: false },
 }
 
-export default async function LoginPage() {
+export default async function CustomerLoginPage() {
   const cookieStore = await cookies()
-  const token = cookieStore.get(INVESTOR_AUTH_COOKIE)?.value
-  const expected = await expectedInvestorSessionToken()
+  const token = cookieStore.get(CUSTOMER_AUTH_COOKIE)?.value
+  const expected = await expectedCustomerSessionToken()
   if (expected && token === expected) {
-    redirect("/investor-area")
+    redirect("/customers")
   }
 
   return (
@@ -50,14 +50,14 @@ export default async function LoginPage() {
               BLASTX Dry Ice
             </p>
             <h1 className="mt-2 font-display text-2xl font-bold text-balance bg-gradient-to-b from-white to-cyan-100/70 bg-clip-text text-transparent sm:text-3xl">
-              Investor Access
+              Client Portal Access
             </h1>
             <p className="mt-2 text-xs leading-relaxed text-white/60 text-pretty">
-              Enter password for confidential financial models &amp; CAPEX presentation.
+              Enter password to preview Customer Services &amp; Showcase.
             </p>
           </div>
 
-          <LoginForm />
+          <CustomerLoginForm />
         </div>
       </section>
     </main>

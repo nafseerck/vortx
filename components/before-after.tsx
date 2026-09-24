@@ -65,11 +65,11 @@ export function BeforeAfterSlider() {
         {/* After / Clean Image (Background full width) */}
         <img
           src="/images/transformation.png"
-          alt="Factory-new restored engine bay after BLSTX dry ice blasting"
+          alt="Factory-new restored engine bay after BLASTX dry ice blasting"
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute top-4 right-4 rounded-full bg-cyan-500/80 px-3 py-1 text-xs font-bold text-black shadow-lg backdrop-blur">
-          AFTER — BLSTX Restored
+          AFTER — BLASTX Restored
         </div>
 
         {/* Before / Grimy Image (Clipped overlay) */}
