@@ -3,7 +3,6 @@ import { cookies } from "next/headers"
 import { redirect } from "next/navigation"
 import { CUSTOMER_AUTH_COOKIE, expectedCustomerSessionToken } from "@/lib/auth"
 import { CustomerLoginForm } from "./login-customer-form"
-import { PelletsLogoIcon } from "@/components/pellets-logo-icon"
 
 export const metadata: Metadata = {
   title: "Customer Access Required — BLASTX Dry Ice",
@@ -43,8 +42,14 @@ export default async function CustomerLoginPage() {
       <section className="w-full max-w-md">
         <div className="rounded-3xl border border-cyan-400/20 bg-[#081b22]/90 p-8 backdrop-blur-2xl shadow-2xl shadow-cyan-950/50 sm:p-10">
           <div className="mb-8 text-center flex flex-col items-center">
-            <span className="flex size-14 items-center justify-center rounded-2xl bg-cyan-500/15 ring-1 ring-cyan-400/30 mb-4 shadow-lg">
-              <PelletsLogoIcon size={32} />
+            <span className="flex size-16 items-center justify-center overflow-hidden rounded-2xl ring-1 ring-cyan-400/30 mb-4 shadow-xl shadow-cyan-950/50">
+              <img
+                src="/logo.png"
+                alt="BLASTX"
+                width={64}
+                height={64}
+                className="size-full object-cover"
+              />
             </span>
             <p className="font-display text-xs font-bold uppercase tracking-[0.35em] text-cyan-300">
               BLASTX Dry Ice

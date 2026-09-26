@@ -1,17 +1,17 @@
 import React from 'react'
 
-interface LogoIconProps extends React.ImgHTMLAttributes<HTMLImageElement> {
+interface BlastxLogoProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   size?: number
   className?: string
   alt?: string
 }
 
-export function PelletsLogoIcon({
-  size = 24,
+export function BlastxLogo({
+  size = 32,
   className = '',
   alt = 'BLASTX',
   ...props
-}: LogoIconProps) {
+}: BlastxLogoProps) {
   return (
     <img
       src="/logo.png"
@@ -24,5 +24,3 @@ export function PelletsLogoIcon({
     />
   )
 }
-
-export const BlastxLogoIcon = PelletsLogoIcon

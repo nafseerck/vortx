@@ -1,6 +1,5 @@
 import { Reveal } from '@/components/reveal'
 import { Mail, Phone, MessageCircle, Sparkles } from 'lucide-react'
-import { PelletsLogoIcon } from '@/components/pellets-logo-icon'
 
 export function SiteFooter() {
   return (
@@ -12,8 +11,14 @@ export function SiteFooter() {
             aria-hidden="true"
           />
           <div className="relative">
-            <span className="mx-auto flex size-14 items-center justify-center rounded-2xl bg-primary/20 text-primary ring-1 ring-primary/40 shadow-xl shadow-cyan-950/40 backdrop-blur">
-              <PelletsLogoIcon size={30} aria-hidden="true" />
+            <span className="mx-auto flex size-16 items-center justify-center overflow-hidden rounded-2xl ring-1 ring-primary/40 shadow-xl shadow-cyan-950/50">
+              <img
+                src="/logo.png"
+                alt="BLASTX Logo"
+                width={64}
+                height={64}
+                className="size-full object-cover"
+              />
             </span>
             <h2 className="mx-auto mt-6 max-w-2xl text-balance text-3xl font-bold sm:text-4xl">
               Partner with BLASTX at the ground floor
@@ -60,7 +65,15 @@ export function SiteFooter() {
 
       <div className="mt-10 flex flex-col items-center justify-between gap-3 border-t border-border/50 pt-6 text-sm text-muted-foreground sm:flex-row">
         <div className="flex items-center gap-2.5">
-          <PelletsLogoIcon size={20} aria-hidden="true" />
+          <span className="relative flex size-7 items-center justify-center overflow-hidden rounded-full ring-1 ring-primary/40 shadow-sm">
+            <img
+              src="/logo.png"
+              alt="BLASTX"
+              width={28}
+              height={28}
+              className="size-full object-cover"
+            />
+          </span>
           <span className="font-display font-bold tracking-[0.2em] text-foreground">BLASTX</span>
           <span>Dry Ice — Dubai, UAE</span>
         </div>

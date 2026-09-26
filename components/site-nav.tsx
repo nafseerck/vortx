@@ -1,4 +1,3 @@
-import { PelletsLogoIcon } from '@/components/pellets-logo-icon'
 
 const investorLinks = [
   { href: '#showcase', label: 'Showcase' },
@@ -33,11 +32,17 @@ export function SiteNav({ mode = 'investor' }: { mode?: 'investor' | 'customer' 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <div className="mx-auto mt-4 flex max-w-6xl items-center justify-between rounded-full border border-border/70 bg-background/70 px-4 py-2.5 backdrop-blur-xl sm:px-6">
-        <a href="/" className="flex items-center gap-2">
-          <span className="flex size-8 items-center justify-center rounded-full bg-primary/15 text-primary ring-1 ring-primary/30">
-            <PelletsLogoIcon size={18} aria-hidden="true" />
+        <a href="/" className="flex items-center gap-2.5 group">
+          <span className="relative flex size-8 items-center justify-center overflow-hidden rounded-full ring-1 ring-primary/40 shadow-sm shadow-cyan-500/20 transition-transform group-hover:scale-105">
+            <img
+              src="/logo.png"
+              alt="BLASTX"
+              width={32}
+              height={32}
+              className="size-full object-cover"
+            />
           </span>
-          <span className="font-display text-sm font-bold tracking-[0.2em]">BLASTX</span>
+          <span className="font-display text-sm font-bold tracking-[0.2em] text-foreground">BLASTX</span>
         </a>
 
         <nav className="hidden items-center gap-6 md:flex" aria-label="Section navigation">

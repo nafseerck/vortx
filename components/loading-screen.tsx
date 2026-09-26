@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { PelletsLogoIcon } from '@/components/pellets-logo-icon'
 
 export function LoadingScreen() {
   const [done, setDone] = useState(false)
@@ -27,10 +26,17 @@ export function LoadingScreen() {
     >
       <div className="absolute left-1/2 top-1/2 size-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/20 blur-3xl" />
       <div className="relative flex flex-col items-center">
-        <span className="relative flex size-16 items-center justify-center">
+        <span className="relative flex size-20 items-center justify-center">
           <span className="absolute inset-0 animate-ping rounded-full bg-primary/30" />
-          <span className="absolute inset-0 rounded-full ring-1 ring-primary/40" />
-          <PelletsLogoIcon size={32} className="animate-pulse" />
+          <span className="relative flex size-20 items-center justify-center overflow-hidden rounded-full ring-2 ring-primary/50 shadow-2xl shadow-cyan-500/20">
+            <img
+              src="/logo.png"
+              alt="BLASTX"
+              width={80}
+              height={80}
+              className="size-full object-cover animate-pulse"
+            />
+          </span>
         </span>
         <p className="mt-6 font-display text-2xl font-bold tracking-[0.35em] text-foreground">BLASTX</p>
         <div className="mt-4 h-px w-40 overflow-hidden bg-border/60">

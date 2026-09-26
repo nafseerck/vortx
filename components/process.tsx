@@ -1,11 +1,10 @@
 import { SectionHeading } from '@/components/section-heading'
 import { Reveal } from '@/components/reveal'
-import { Wind, Sparkles } from 'lucide-react'
-import { PelletsLogoIcon } from '@/components/pellets-logo-icon'
+import { Snowflake, Wind, Sparkles } from 'lucide-react'
 
 const steps = [
   {
-    icon: PelletsLogoIcon,
+    icon: Snowflake,
     step: '01',
     title: 'Solid CO₂ pellets',
     body: 'Food-grade dry ice pellets at −78.5°C are loaded into the blaster — a dry, non-toxic, non-conductive media.',
