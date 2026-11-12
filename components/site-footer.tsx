@@ -1,83 +1,76 @@
+import { ArrowUpRight, Mail, MessageCircle, Phone } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
-import { Mail, Phone, MessageCircle, Sparkles } from 'lucide-react'
+import { IceField } from '@/components/ice-field'
+
+const EMAIL = 'info@blastx.ae'
+const PHONE = '+971564393000'
+const PHONE_LABEL = '+971 56 439 3000'
+
+const contacts = [
+  { icon: MessageCircle, label: 'WhatsApp', value: 'Chat with us', href: `https://wa.me/${PHONE.slice(1)}`, external: true },
+  { icon: Phone, label: 'Call', value: PHONE_LABEL, href: `tel:${PHONE}` },
+  { icon: Mail, label: 'Email', value: EMAIL, href: `mailto:${EMAIL}` },
+]
 
 export function SiteFooter() {
   return (
-    <footer id="contact" className="relative mx-auto max-w-6xl px-5 pb-16 pt-8 sm:px-8">
-      <Reveal>
-        <div className="glow-ring relative overflow-hidden rounded-3xl border border-primary/30 bg-gradient-to-br from-primary/15 via-card to-card p-8 text-center sm:p-14">
-          <div
-            className="absolute left-1/2 top-0 size-64 -translate-x-1/2 rounded-full bg-primary/20 blur-3xl"
-            aria-hidden="true"
-          />
-          <div className="relative">
-            <span className="mx-auto flex size-16 items-center justify-center overflow-hidden rounded-2xl ring-1 ring-primary/40 shadow-xl shadow-cyan-950/50">
-              <img
-                src="/logo.png"
-                alt="BLASTX Logo"
-                width={64}
-                height={64}
-                className="size-full object-cover"
-              />
-            </span>
-            <h2 className="mx-auto mt-6 max-w-2xl text-balance text-3xl font-bold sm:text-4xl">
-              Partner with BLASTX at the ground floor
+    <footer id="contact" className="relative px-5 pb-10 pt-12 sm:px-8">
+      <div className="mx-auto max-w-6xl">
+        <Reveal>
+          <div className="relative isolate overflow-hidden rounded-[2.5rem] border border-primary/25 bg-card px-6 py-16 text-center sm:px-14 sm:py-24">
+            <div className="absolute inset-0 -z-10" aria-hidden="true">
+              <img src="/images/eco-impact.png" alt="" loading="lazy" className="h-full w-full object-cover opacity-20" />
+              <div className="absolute inset-0 bg-gradient-to-b from-card/60 via-card/80 to-card" />
+              <div className="aurora left-1/2 top-0 size-[480px] -translate-x-1/2 bg-cyan-400/20" />
+              <IceField className="absolute inset-0" />
+            </div>
+
+            <h2 className="mx-auto max-w-3xl text-balance text-5xl font-extrabold leading-[0.95] sm:text-7xl">
+              Ready for a <span className="text-gradient-ice">factory-new</span> finish?
             </h2>
-            <p className="mx-auto mt-4 max-w-xl text-pretty text-muted-foreground">
-              A lean, high-margin entry into Dubai&apos;s premium eco-cleaning market with a clear
-              path to recurring B2B revenue. Let&apos;s discuss the opportunity.
+            <p className="mx-auto mt-6 max-w-xl text-pretty text-lg text-muted-foreground">
+              Tell us what needs cleaning and where it is. We&apos;ll come back with a quote and a time that suits you.
             </p>
 
-            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <a
-                href="mailto:nethincot@gmail.com"
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.03]"
-              >
-                <Mail className="size-4" aria-hidden="true" />
-                nethincot@gmail.com
-              </a>
-              <a
-                href="tel:+971564393000"
-                className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-card/40 px-6 py-3 text-sm font-semibold text-foreground transition-transform hover:scale-[1.03]"
-              >
-                <Phone className="size-4" aria-hidden="true" />
-                Call +971 56 439 3000
-              </a>
-              <a
-                href="https://wa.me/971564393000"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-emerald-400/40 bg-emerald-500/10 px-6 py-3 text-sm font-semibold text-emerald-300 transition-transform hover:scale-[1.03]"
-              >
-                <MessageCircle className="size-4" aria-hidden="true" />
-                Chat on WhatsApp
-              </a>
-            </div>
-
-            {/* Bold Founder & Enthusiast Badge */}
-            <div className="mt-10 inline-flex items-center gap-2 rounded-full border border-cyan-400/40 bg-cyan-950/50 px-6 py-2.5 text-xs sm:text-sm font-extrabold uppercase tracking-[0.25em] text-cyan-300 shadow-xl shadow-cyan-950/60 backdrop-blur-md transition-all hover:scale-105 hover:border-cyan-300">
-              <Sparkles className="size-4 text-cyan-400" />
-              <span>Founder &amp; Enthusiast</span>
+            <div className="mx-auto mt-10 grid max-w-3xl gap-3 sm:grid-cols-3">
+              {contacts.map((c) => (
+                <a
+                  key={c.label}
+                  href={c.href}
+                  {...(c.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                  className="glass group flex items-center gap-3 rounded-2xl p-4 text-left transition-all duration-500 hover:-translate-y-1 hover:border-primary/50"
+                >
+                  <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors duration-500 group-hover:bg-primary group-hover:text-primary-foreground">
+                    <c.icon className="size-5" aria-hidden="true" />
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-[11px] uppercase tracking-[0.18em] text-muted-foreground">{c.label}</span>
+                    <span className="block truncate text-sm font-semibold">{c.value}</span>
+                  </span>
+                  <ArrowUpRight className="size-4 shrink-0 text-muted-foreground transition-transform duration-500 group-hover:rotate-45 group-hover:text-primary" aria-hidden="true" />
+                </a>
+              ))}
             </div>
           </div>
-        </div>
-      </Reveal>
+        </Reveal>
 
-      <div className="mt-10 flex flex-col items-center justify-between gap-3 border-t border-border/50 pt-6 text-sm text-muted-foreground sm:flex-row">
-        <div className="flex items-center gap-2.5">
-          <span className="relative flex size-7 items-center justify-center overflow-hidden rounded-full ring-1 ring-primary/40 shadow-sm">
-            <img
-              src="/logo.png"
-              alt="BLASTX"
-              width={28}
-              height={28}
-              className="size-full object-cover"
-            />
-          </span>
-          <span className="font-display font-bold tracking-[0.2em] text-foreground">BLASTX</span>
-          <span>Dry Ice — Dubai, UAE</span>
+        <div className="mt-10 flex flex-col items-center justify-between gap-4 text-sm text-muted-foreground sm:flex-row">
+          <div className="flex items-center gap-2.5">
+            <span className="flex size-7 overflow-hidden rounded-full ring-1 ring-primary/40">
+              <img src="/logo.png" alt="" width={28} height={28} className="size-full object-cover" />
+            </span>
+            <span className="font-display font-bold tracking-[0.2em] text-foreground">BLASTX</span>
+            <span>Dry Ice — Dubai, UAE</span>
+          </div>
+          <p>© {new Date().getFullYear()} BLASTX. All rights reserved.</p>
         </div>
-        <p>Investor Presentation · Phase 1 · Confidential</p>
+
+        <p
+          className="pointer-events-none mt-6 select-none text-center font-display text-[22vw] font-extrabold leading-none tracking-tighter text-white/[0.04] lg:text-[17rem]"
+          aria-hidden="true"
+        >
+          BLASTX
+        </p>
       </div>
     </footer>
   )

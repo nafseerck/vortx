@@ -1,23 +1,20 @@
-import { SectionHeading } from '@/components/section-heading'
-import { Reveal } from '@/components/reveal'
 import { Snowflake, Wind, Sparkles } from 'lucide-react'
+import { SectionTitle } from '@/components/section-title'
+import { Reveal } from '@/components/reveal'
 
 const steps = [
   {
     icon: Snowflake,
-    step: '01',
     title: 'Solid CO₂ pellets',
     body: 'Food-grade dry ice pellets at −78.5°C are loaded into the blaster — a dry, non-toxic, non-conductive media.',
   },
   {
     icon: Wind,
-    step: '02',
     title: 'Supersonic blast',
     body: 'Compressed air accelerates the pellets onto the surface. The thermal shock cracks and lifts contaminants instantly.',
   },
   {
     icon: Sparkles,
-    step: '03',
     title: 'Sublimation',
     body: 'Pellets convert straight to gas and vanish — leaving zero water, zero residue, and nothing to clean up afterward.',
   },
@@ -25,45 +22,61 @@ const steps = [
 
 export function Process() {
   return (
-    <section id="process" className="relative overflow-hidden py-24 sm:py-32">
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
+    <section id="process" className="relative py-24 sm:py-36">
+      <div className="mx-auto grid max-w-6xl gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:gap-16">
+        {/* Image stays pinned while the steps scroll past */}
+        <div className="lg:sticky lg:top-28 lg:self-start">
           <Reveal>
-            <div className="glow-ring relative overflow-hidden rounded-3xl border border-border/60">
+            <div className="group relative overflow-hidden rounded-[2rem] border border-white/10">
               <img
                 src="/images/process-nozzle.png"
-                alt="A dry ice blasting nozzle spraying a powerful jet of dry ice and white vapor onto a metal surface"
-                className="aspect-[4/5] w-full object-cover"
+                alt="A dry ice blasting nozzle spraying a jet of dry ice and white vapor onto a metal surface"
+                loading="lazy"
+                className="aspect-[4/5] w-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/70 to-transparent" aria-hidden="true" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+              <div className="glass absolute inset-x-5 bottom-5 flex items-center justify-between rounded-2xl px-5 py-4">
+                <div>
+                  <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Pellet temperature</p>
+                  <p className="font-display text-2xl font-bold">−78.5°C</p>
+                </div>
+                <Snowflake className="size-8 animate-spin text-primary [animation-duration:12s]" aria-hidden="true" />
+              </div>
             </div>
           </Reveal>
+        </div>
 
-          <div>
-            <SectionHeading
-              eyebrow="The Science"
-              title={<>Clean by physics, not chemicals</>}
-              description="Dry-ice blasting uses temperature and kinetic energy — no water, no solvents, no abrasion. Here's how a single pass works."
-            />
-            <div className="mt-10 grid gap-4">
-              {steps.map((s, i) => (
-                <Reveal key={s.step} delay={i * 100}>
-                  <div className="flex gap-5 rounded-2xl border border-border/60 bg-card/50 p-5 backdrop-blur">
-                    <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-secondary text-primary">
-                      <s.icon className="size-5" aria-hidden="true" />
+        <div>
+          <SectionTitle
+            eyebrow="The science"
+            title={
+              <>
+                Clean by physics, <span className="text-gradient-ice">not chemicals</span>
+              </>
+            }
+            description="Dry ice blasting uses temperature and kinetic energy — no water, no solvents, no abrasion. Here's how a single pass works."
+          />
+
+          <ol className="relative mt-12 space-y-5 before:absolute before:bottom-8 before:left-[27px] before:top-8 before:w-px before:bg-gradient-to-b before:from-primary/60 before:via-primary/20 before:to-transparent">
+            {steps.map((s, i) => (
+              <li key={s.title}>
+                <Reveal delay={i * 120}>
+                  <div className="group relative flex gap-5 rounded-3xl border border-transparent p-3 transition-colors duration-500 hover:border-white/10 hover:bg-white/[0.03]">
+                    <span className="relative z-10 flex size-14 shrink-0 items-center justify-center rounded-2xl border border-primary/30 bg-background text-primary transition-all duration-500 group-hover:bg-primary group-hover:text-primary-foreground group-hover:shadow-[0_0_30px_-4px] group-hover:shadow-primary">
+                      <s.icon className="size-6" aria-hidden="true" />
                     </span>
-                    <div>
-                      <div className="flex items-center gap-2">
-                        <span className="font-display text-xs font-bold tracking-widest text-accent">{s.step}</span>
-                        <h4 className="font-semibold">{s.title}</h4>
-                      </div>
-                      <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
+                    <div className="pt-1">
+                      <span className="font-display text-xs font-bold tracking-[0.25em] text-primary/70">
+                        STEP 0{i + 1}
+                      </span>
+                      <h3 className="mt-1 text-2xl font-bold">{s.title}</h3>
+                      <p className="mt-2 leading-relaxed text-muted-foreground">{s.body}</p>
                     </div>
                   </div>
                 </Reveal>
-              ))}
-            </div>
-          </div>
+              </li>
+            ))}
+          </ol>
         </div>
       </div>
     </section>

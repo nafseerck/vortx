@@ -1,45 +1,42 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
-import { cn } from '@/lib/utils'
+import { useEffect, useRef, useState, type ReactNode } from 'react'
 
+/** Fades/slides children in the first time they scroll into view. */
 export function Reveal({
   children,
-  className,
   delay = 0,
+  className = '',
 }: {
-  children: React.ReactNode
-  className?: string
+  children: ReactNode
   delay?: number
+  className?: string
 }) {
   const ref = useRef<HTMLDivElement>(null)
-  const [shown, setShown] = useState(false)
+  const [visible, setVisible] = useState(false)
 
   useEffect(() => {
     const el = ref.current
     if (!el) return
-    const observer = new IntersectionObserver(
+    const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setShown(true)
-          observer.disconnect()
+          setVisible(true)
+          io.disconnect()
         }
       },
-      { threshold: 0.15 },
+      { threshold: 0.15, rootMargin: '0px 0px -8% 0px' },
     )
-    observer.observe(el)
-    return () => observer.disconnect()
+    io.observe(el)
+    return () => io.disconnect()
   }, [])
 
   return (
     <div
       ref={ref}
-      style={{ transitionDelay: `${delay}ms` }}
-      className={cn(
-        'transition-all duration-700 ease-out will-change-transform',
-        shown ? 'translate-y-0 opacity-100 blur-0' : 'translate-y-6 opacity-0 blur-[2px]',
-        className,
-      )}
+      data-visible={visible}
+      className={`reveal ${className}`}
+      style={{ '--reveal-delay': `${delay}ms` } as React.CSSProperties}
     >
       {children}
     </div>

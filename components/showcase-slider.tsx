@@ -1,285 +1,212 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { SectionHeading } from '@/components/section-heading'
+import { useEffect, useState } from 'react'
+import { ArrowUpRight, ShieldCheck } from 'lucide-react'
+import { SectionTitle } from '@/components/section-title'
 import { Reveal } from '@/components/reveal'
-import { ChevronLeft, ChevronRight, Pause, Play, Sparkles, ShieldCheck, Gauge, Zap, Layers } from 'lucide-react'
 
-export interface SlideItem {
-  id: string
-  title: string
-  category: string
-  subtitle: string
-  description: string
-  image: string
-  stats: {
-    label: string
-    value: string
-  }[]
-  badge: string
-}
+const DURATION = 6500
 
-const slides: SlideItem[] = [
+const slides = [
   {
     id: 'hypercar',
-    category: 'Automotive Precision',
-    title: 'Hypercar & Classic Chassis Preservation',
-    subtitle: 'Zero-water undercarriage & engine bay cryo-detailing',
+    category: 'Automotive',
+    badge: 'Flagship service',
+    title: 'Hypercar & classic chassis preservation',
     description:
-      'Safely strips road grime, oxidation, and oil buildup without water or abrasive media. Preserves original factory stickers, delicate wiring harnesses, OEM paint markings, and raw carbon fiber.',
+      'Safely strips road grime, oxidation and oil buildup without water or abrasive media. Preserves original factory stickers, delicate wiring harnesses, OEM paint markings and raw carbon fibre.',
     image: '/images/supercar-undercarriage.jpg',
-    badge: 'Flagship Service',
     stats: [
-      { label: 'Thermal Shock', value: '-78.5°C' },
-      { label: 'Water Used', value: '0 Liters' },
-      { label: 'Surface Risk', value: '0% Abrasive' },
-      { label: 'Electrical Safe', value: '100%' },
+      { label: 'Thermal shock', value: '−78.5°C' },
+      { label: 'Water used', value: '0 litres' },
+      { label: 'Abrasion', value: 'None' },
+      { label: 'Electrical safe', value: '100%' },
     ],
   },
   {
     id: 'marine',
-    category: 'Superyacht & Marine',
-    title: 'Marine Teak & Hull Bio-Fouling Removal',
-    subtitle: 'Eco-compliant marine maintenance in Dubai Marinas',
+    category: 'Marine',
+    badge: 'Marine grade',
+    title: 'Teak & hull bio-fouling removal',
     description:
-      'Removes bio-fouling, marine growth, salt crust, and old paint from yacht hulls, drive shafts, and delicate teak wood without chemical runoff or secondary wastewater into coastal waters.',
+      'Removes bio-fouling, marine growth, salt crust and old paint from yacht hulls, drive shafts and delicate teak — with no chemical runoff or wastewater into coastal waters.',
     image: '/images/marine-yacht.jpg',
-    badge: 'Marine Grade',
     stats: [
-      { label: 'Chemical Runoff', value: '0%' },
-      { label: 'Sublimation Speed', value: 'Supersonic' },
-      { label: 'Substrate Preservation', value: '100%' },
-      { label: 'EPA/UAE Compliant', value: 'Verified' },
+      { label: 'Chemical runoff', value: '0%' },
+      { label: 'Blast speed', value: 'Supersonic' },
+      { label: 'Substrate preserved', value: '100%' },
+      { label: 'Wastewater', value: 'None' },
     ],
   },
   {
     id: 'aviation',
-    category: 'Aviation & Aerospace',
-    title: 'Private Jet Turbine & Airframe Maintenance',
-    subtitle: 'Non-conductive turbine & airframe precision cleaning',
+    category: 'Aviation',
+    badge: 'Aerospace grade',
+    title: 'Jet turbine & airframe maintenance',
     description:
-      'Removes carbon buildup, grease, and exhaust soot from jet turbine intakes, landing gear bays, and composite airframes with zero residue and zero component disassembly.',
+      'Removes carbon buildup, grease and exhaust soot from turbine intakes, landing gear bays and composite airframes with zero residue and zero component disassembly.',
     image: '/images/aviation-jet.jpg',
-    badge: 'Aerospace Grade',
     stats: [
-      { label: 'Downtime Saved', value: '~70%' },
-      { label: 'Secondary Waste', value: 'Zero' },
-      { label: 'Conductivity', value: 'Non-conductive' },
-      { label: 'OEM Approved', value: 'Yes' },
+      { label: 'Downtime saved', value: '~70%' },
+      { label: 'Secondary waste', value: 'Zero' },
+      { label: 'Media', value: 'Non-conductive' },
+      { label: 'Disassembly', value: 'None' },
     ],
   },
   {
     id: 'mobile',
-    category: 'VIP Mobile Rigs',
-    title: 'On-Demand Mobile Dry Ice Blasting Fleet',
-    subtitle: 'High-pressure mobile units delivered directly to client private garages',
+    category: 'Mobile',
+    badge: 'Concierge on-site',
+    title: 'On-demand mobile blasting fleet',
     description:
-      'Custom matte-black mobile service vans equipped with independent rotary screw compressors and dual-hose blasting systems bring luxury detailing directly to Palm Jumeirah & Emirates Hills residences.',
+      'Matte-black service vans with independent rotary screw compressors and dual-hose blasting systems bring the full service to your private garage, from Palm Jumeirah to Emirates Hills.',
     image: '/images/mobile-van.jpg',
-    badge: 'Concierge On-Site',
     stats: [
-      { label: 'Mobility', value: '100% Autonomous' },
-      { label: 'Setup Time', value: '< 15 Mins' },
-      { label: 'Operating Noise', value: 'Acoustic Screened' },
-      { label: 'Service Coverage', value: 'UAE-Wide' },
+      { label: 'Power', value: 'Self-contained' },
+      { label: 'Setup time', value: '< 15 min' },
+      { label: 'Noise', value: 'Acoustic screened' },
+      { label: 'Coverage', value: 'UAE-wide' },
     ],
   },
   {
     id: 'industrial',
-    category: 'Commercial & Industrial',
-    title: 'Production Line & Machinery Decontam',
-    subtitle: 'Continuous online cleaning without line shutdown',
-    description:
-      'Restores food processing lines, plastic injection molds, and high-voltage electrical cabinets without interrupting operational shifts or generating secondary toxic slurry.',
-    image: '/images/industrial.png',
+    category: 'Industrial',
     badge: 'Industrial B2B',
+    title: 'Production line & machinery cleaning',
+    description:
+      'Restores food processing lines, plastic injection molds and high-voltage electrical cabinets without interrupting shifts or generating toxic slurry.',
+    image: '/images/industrial.png',
     stats: [
-      { label: 'Line Downtime', value: 'Minimised' },
-      { label: 'Secondary Slurry', value: '0 Slurry' },
-      { label: 'ROI Payback', value: '< 6 Months' },
-      { label: 'Safety Rating', value: 'OSHA Compliant' },
+      { label: 'Line downtime', value: 'Minimised' },
+      { label: 'Slurry', value: 'Zero' },
+      { label: 'Disassembly', value: 'None' },
+      { label: 'Contracts', value: 'Recurring' },
     ],
   },
 ]
 
 export function ShowcaseSlider() {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [isPlaying, setIsPlaying] = useState(true)
-  const [activeCategory, setActiveCategory] = useState<string>('All')
-
-  const categories = ['All', 'Automotive Precision', 'Superyacht & Marine', 'Aviation & Aerospace', 'VIP Mobile Rigs', 'Commercial & Industrial']
-
-  const filteredSlides = activeCategory === 'All'
-    ? slides
-    : slides.filter((s) => s.category === activeCategory)
-
-  const currentSlide = filteredSlides[currentIndex % filteredSlides.length] || slides[0]
+  const [index, setIndex] = useState(0)
+  const [paused, setPaused] = useState(false)
+  const slide = slides[index]
 
   useEffect(() => {
-    if (!isPlaying) return
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % filteredSlides.length)
-    }, 6000)
-    return () => clearInterval(timer)
-  }, [isPlaying, filteredSlides.length])
-
-  const nextSlide = () => setCurrentIndex((prev) => (prev + 1) % filteredSlides.length)
-  const prevSlide = () => setCurrentIndex((prev) => (prev - 1 + filteredSlides.length) % filteredSlides.length)
+    if (paused) return
+    const t = setTimeout(() => setIndex((i) => (i + 1) % slides.length), DURATION)
+    return () => clearTimeout(t)
+  }, [index, paused])
 
   return (
-    <section id="showcase" className="relative mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
-      <SectionHeading
-        eyebrow="Interactive Showcase"
-        title={<>Multi-Sector Precision Detailing</>}
-        description="Explore BLASTX's high-margin applications across hypercars, luxury marine, aviation, and industrial maintenance."
-      />
+    <section id="showcase" className="relative py-24 sm:py-36">
+      <div className="aurora left-1/2 top-1/3 -z-10 size-[600px] -translate-x-1/2 bg-cyan-500/10" aria-hidden="true" />
+      <div className="mx-auto max-w-6xl px-5 sm:px-8">
+        <SectionTitle
+          align="center"
+          eyebrow="Showcase"
+          title={
+            <>
+              See it in <span className="text-gradient-ice">action</span>
+            </>
+          }
+          description="Five sectors, one obsession: a perfect surface with nothing left behind."
+        />
 
-      {/* Category Filter Pills */}
-      <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
-        {categories.map((cat) => (
-          <button
-            key={cat}
-            onClick={() => {
-              setActiveCategory(cat)
-              setCurrentIndex(0)
-            }}
-            className={`rounded-full px-4 py-2 text-xs font-semibold tracking-wide transition-all ${
-              activeCategory === cat
-                ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/20 scale-105'
-                : 'border border-border/70 bg-card/40 text-muted-foreground hover:bg-card hover:text-foreground'
-            }`}
+        <Reveal className="mt-12">
+          {/* Tabs with autoplay progress */}
+          <div className="flex gap-2 overflow-x-auto pb-3 [scrollbar-width:none]" role="tablist">
+            {slides.map((s, i) => (
+              <button
+                key={s.id}
+                type="button"
+                role="tab"
+                aria-selected={i === index}
+                onClick={() => setIndex(i)}
+                className={`relative shrink-0 overflow-hidden rounded-full border px-5 py-2.5 text-sm font-semibold transition-colors duration-300 ${
+                  i === index
+                    ? 'border-primary/50 bg-primary/10 text-foreground'
+                    : 'border-white/10 text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                {s.category}
+                {i === index && (
+                  <span
+                    key={`${index}-${paused}`}
+                    className="absolute inset-x-0 bottom-0 h-0.5 origin-left bg-primary"
+                    style={{
+                      animation: paused ? 'none' : `progress ${DURATION}ms linear forwards`,
+                    }}
+                  />
+                )}
+              </button>
+            ))}
+          </div>
+
+          <div
+            className="relative mt-3 overflow-hidden rounded-[2rem] border border-white/10 bg-card"
+            onMouseEnter={() => setPaused(true)}
+            onMouseLeave={() => setPaused(false)}
           >
-            {cat}
-          </button>
-        ))}
-      </div>
-
-      {/* Main Slide Card Container */}
-      <Reveal className="mt-10">
-        <div className="glow-ring relative overflow-hidden rounded-3xl border border-primary/30 bg-card/60 backdrop-blur-2xl shadow-2xl">
-          <div className="grid lg:grid-cols-12 min-h-[540px]">
-            {/* Left: Image Container with HUD overlay */}
-            <div className="relative lg:col-span-7 overflow-hidden min-h-[340px] lg:min-h-[540px]">
-              <img
-                src={currentSlide.image}
-                alt={currentSlide.title}
-                className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-background/20 lg:to-background" />
-
-              {/* Badge & Telemetry HUD Overlay */}
-              <div className="absolute top-5 left-5 flex items-center gap-2">
-                <span className="flex items-center gap-1.5 rounded-full border border-cyan-400/40 bg-black/60 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-cyan-300 backdrop-blur-md shadow-lg">
-                  <Sparkles className="size-3.5 text-cyan-400" />
-                  {currentSlide.badge}
+            <div className="grid lg:grid-cols-5">
+              {/* Crossfading images */}
+              <div className="relative aspect-[4/3] overflow-hidden lg:col-span-3 lg:aspect-auto lg:min-h-[540px]">
+                {slides.map((s, i) => (
+                  <img
+                    key={s.id}
+                    src={s.image}
+                    alt={i === index ? s.title : ''}
+                    loading="lazy"
+                    className={`absolute inset-0 h-full w-full object-cover transition-all duration-[1.2s] ease-out ${
+                      i === index ? 'scale-100 opacity-100' : 'scale-110 opacity-0'
+                    }`}
+                  />
+                ))}
+                <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-card" />
+                <span className="glass absolute left-5 top-5 rounded-full px-3.5 py-1.5 text-xs font-semibold text-ice">
+                  {slide.badge}
+                </span>
+                <span className="absolute bottom-5 left-6 font-display text-6xl font-extrabold text-white/15">
+                  0{index + 1}
                 </span>
               </div>
 
-              {/* Auto Play & Controls Bar overlay */}
-              <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between rounded-full border border-white/10 bg-black/50 px-4 py-2 backdrop-blur-md">
-                <div className="flex items-center gap-2">
-                  <button
-                    onClick={() => setIsPlaying(!isPlaying)}
-                    className="flex size-8 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
-                    title={isPlaying ? 'Pause auto-slide' : 'Play auto-slide'}
-                  >
-                    {isPlaying ? <Pause className="size-4" /> : <Play className="size-4" />}
-                  </button>
-                  <span className="text-xs text-white/70 font-mono">
-                    {String((currentIndex % filteredSlides.length) + 1).padStart(2, '0')} / {String(filteredSlides.length).padStart(2, '0')}
-                  </span>
-                </div>
-
-                <div className="flex items-center gap-1.5">
-                  {filteredSlides.map((_, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => setCurrentIndex(idx)}
-                      className={`h-1.5 rounded-full transition-all ${
-                        idx === (currentIndex % filteredSlides.length)
-                          ? 'w-6 bg-cyan-400'
-                          : 'w-1.5 bg-white/30 hover:bg-white/60'
-                      }`}
-                      aria-label={`Go to slide ${idx + 1}`}
-                    />
-                  ))}
-                </div>
-
-                <div className="flex items-center gap-1">
-                  <button
-                    onClick={prevSlide}
-                    className="flex size-8 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20"
-                    aria-label="Previous Slide"
-                  >
-                    <ChevronLeft className="size-4" />
-                  </button>
-                  <button
-                    onClick={nextSlide}
-                    className="flex size-8 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20"
-                    aria-label="Next Slide"
-                  >
-                    <ChevronRight className="size-4" />
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Right: Detailed Content & Stats */}
-            <div className="flex flex-col justify-between p-8 sm:p-10 lg:col-span-5">
-              <div>
-                <p className="font-display text-xs font-bold uppercase tracking-[0.25em] text-cyan-400">
-                  {currentSlide.category}
+              {/* Copy re-mounts per slide to replay the entrance */}
+              <div key={slide.id} className="flex flex-col justify-center p-7 sm:p-10 lg:col-span-2">
+                <h3 className="fade-up text-3xl font-bold leading-tight">{slide.title}</h3>
+                <p
+                  className="fade-up mt-4 text-sm leading-relaxed text-muted-foreground"
+                  style={{ '--d': '80ms' } as React.CSSProperties}
+                >
+                  {slide.description}
                 </p>
-                <h3 className="mt-3 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-                  {currentSlide.title}
-                </h3>
-                <p className="mt-2 text-sm font-medium text-accent">
-                  {currentSlide.subtitle}
-                </p>
-                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                  {currentSlide.description}
-                </p>
-              </div>
 
-              {/* High Tech Metrics Grid */}
-              <div className="mt-8 border-t border-border/60 pt-6">
-                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-4">
-                  Operational Telemetry Specs
-                </p>
-                <div className="grid grid-cols-2 gap-3">
-                  {currentSlide.stats.map((st) => (
+                <dl className="mt-7 grid grid-cols-2 gap-3">
+                  {slide.stats.map((st, i) => (
                     <div
                       key={st.label}
-                      className="rounded-xl border border-primary/20 bg-primary/5 p-3 backdrop-blur"
+                      className="fade-up rounded-2xl border border-white/10 bg-white/[0.03] p-4"
+                      style={{ '--d': `${160 + i * 70}ms` } as React.CSSProperties}
                     >
-                      <span className="block text-[11px] font-medium text-muted-foreground">
-                        {st.label}
-                      </span>
-                      <span className="font-display text-base font-bold text-cyan-300">
-                        {st.value}
-                      </span>
+                      <dt className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground">{st.label}</dt>
+                      <dd className="mt-1 font-display text-lg font-bold text-primary">{st.value}</dd>
                     </div>
                   ))}
-                </div>
-              </div>
+                </dl>
 
-              <div className="mt-8 flex items-center justify-between">
-                <a
-                  href="#contact"
-                  className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-xs font-semibold text-primary-foreground transition-transform hover:scale-[1.03]"
-                >
-                  <Zap className="size-3.5" />
-                  Request Sector Proposal
-                </a>
-                <span className="flex items-center gap-1 text-xs text-muted-foreground">
-                  <ShieldCheck className="size-4 text-emerald-400" />
-                  Non-Abrasive Guarantee
-                </span>
+                <div className="mt-8 flex flex-wrap items-center justify-between gap-4">
+                  <a href="#contact" className="btn-primary px-5 py-3 text-sm">
+                    Request a quote
+                    <ArrowUpRight className="size-4" aria-hidden="true" />
+                  </a>
+                  <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                    <ShieldCheck className="size-4 text-emerald-400" aria-hidden="true" />
+                    Non-abrasive guarantee
+                  </span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </Reveal>
+        </Reveal>
+      </div>
     </section>
   )
 }

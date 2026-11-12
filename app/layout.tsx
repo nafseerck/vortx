@@ -15,24 +15,14 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'BLASTX Dry Ice — Precision Eco-Cleaning | Investor Presentation',
+  title: 'BLASTX Dry Ice — Precision Eco-Cleaning & Detailing | Dubai, UAE',
   description:
-    'BLASTX is Dubai’s premier zero-water, chemical-free precision eco-cleaning and industrial detailing service. Investor presentation, Phase 1.',
-  generator: 'v0.app',
+    'BLASTX is Dubai’s premier zero-water, chemical-free precision eco-cleaning service for hypercars, superyachts, aviation, and industrial maintenance.',
   icons: {
     icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
+      { url: '/icon-light-32x32.png', media: '(prefers-color-scheme: light)' },
+      { url: '/icon-dark-32x32.png', media: '(prefers-color-scheme: dark)' },
+      { url: '/icon.svg', type: 'image/svg+xml' },
     ],
     apple: '/apple-icon.png',
     shortcut: '/favicon.ico',
@@ -41,7 +31,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   colorScheme: 'dark',
-  themeColor: '#04141a',
+  themeColor: '#050d14',
 }
 
 export default function RootLayout({
@@ -51,7 +41,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${sora.variable} ${inter.variable}`}>
-      <body className="antialiased">
+      <body className="noise antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
