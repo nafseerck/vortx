@@ -56,7 +56,7 @@ export function SiteFooter() {
 
         <div className="mt-10 flex flex-col items-center justify-between gap-4 text-sm text-muted-foreground sm:flex-row">
           <div className="flex items-center gap-2.5">
-            <img src="/logo.png" alt="" width={640} height={447} loading="lazy" className="h-10 w-auto" />
+            <img src="/logo.png" alt="" width={640} height={520} loading="lazy" className="h-10 w-auto" />
             <span className="font-display font-bold tracking-[0.2em] text-foreground">BLASTX</span>
             <span>Dry Ice — Dubai, UAE</span>
           </div>

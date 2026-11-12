@@ -36,7 +36,7 @@ export function SiteNav() {
             src="/logo.png"
             alt=""
             width={640}
-            height={447}
+            height={520}
             className="h-10 w-auto drop-shadow-[0_0_12px_rgba(63,169,245,0.55)] transition-transform duration-500 group-hover:scale-110"
           />
           <span className="font-display text-sm font-bold tracking-[0.22em]">BLASTX</span>
