@@ -54,21 +54,6 @@ const slides = [
     ],
   },
   {
-    id: 'mobile',
-    category: 'Mobile',
-    badge: 'Concierge on-site',
-    title: 'On-demand mobile blasting fleet',
-    description:
-      'Matte-black service vans with independent rotary screw compressors and dual-hose blasting systems bring the full service to your private garage, from Palm Jumeirah to Emirates Hills.',
-    image: '/images/mobile-van.jpg',
-    stats: [
-      { label: 'Power', value: 'Self-contained' },
-      { label: 'Setup time', value: '< 15 min' },
-      { label: 'Noise', value: 'Acoustic screened' },
-      { label: 'Coverage', value: 'UAE-wide' },
-    ],
-  },
-  {
     id: 'industrial',
     category: 'Industrial',
     badge: 'Industrial B2B',
@@ -98,7 +83,7 @@ export function ShowcaseSlider() {
 
   return (
     <section id="showcase" className="relative py-24 sm:py-36">
-      <div className="aurora left-1/2 top-1/3 -z-10 size-[600px] -translate-x-1/2 bg-cyan-500/10" aria-hidden="true" />
+      <div className="aurora left-1/2 top-1/3 -z-10 size-[600px] -translate-x-1/2 bg-sky-500/10" aria-hidden="true" />
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <SectionTitle
           align="center"
@@ -108,7 +93,7 @@ export function ShowcaseSlider() {
               See it in <span className="text-gradient-ice">action</span>
             </>
           }
-          description="Five sectors, one obsession: a perfect surface with nothing left behind."
+          description="Four sectors, one obsession: a perfect surface with nothing left behind."
         />
 
         <Reveal className="mt-12">

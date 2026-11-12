@@ -2,6 +2,7 @@ import { Snowflake } from 'lucide-react'
 
 const items = [
   'Hypercars',
+  'Motorcycles',
   'Classic restorations',
   'EV battery bays',
   'Superyachts',

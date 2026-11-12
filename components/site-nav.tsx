@@ -32,9 +32,13 @@ export function SiteNav() {
         }`}
       >
         <a href="#top" className="group flex items-center gap-2.5">
-          <span className="relative flex size-8 items-center justify-center overflow-hidden rounded-full ring-1 ring-primary/40 transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110">
-            <img src="/logo.png" alt="" width={32} height={32} className="size-full object-cover" />
-          </span>
+          <img
+            src="/logo.png"
+            alt=""
+            width={640}
+            height={447}
+            className="h-10 w-auto drop-shadow-[0_0_12px_rgba(63,169,245,0.55)] transition-transform duration-500 group-hover:scale-110"
+          />
           <span className="font-display text-sm font-bold tracking-[0.22em]">BLASTX</span>
         </a>
 

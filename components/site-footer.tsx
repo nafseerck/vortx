@@ -21,7 +21,7 @@ export function SiteFooter() {
             <div className="absolute inset-0 -z-10" aria-hidden="true">
               <img src="/images/eco-impact.png" alt="" loading="lazy" className="h-full w-full object-cover opacity-20" />
               <div className="absolute inset-0 bg-gradient-to-b from-card/60 via-card/80 to-card" />
-              <div className="aurora left-1/2 top-0 size-[480px] -translate-x-1/2 bg-cyan-400/20" />
+              <div className="aurora left-1/2 top-0 size-[480px] -translate-x-1/2 bg-sky-400/20" />
               <IceField className="absolute inset-0" />
             </div>
 
@@ -29,7 +29,7 @@ export function SiteFooter() {
               Ready for a <span className="text-gradient-ice">factory-new</span> finish?
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-pretty text-lg text-muted-foreground">
-              Tell us what needs cleaning and where it is. We&apos;ll come back with a quote and a time that suits you.
+              Tell us what needs cleaning. We&apos;ll come back with a quote and a time that suits you.
             </p>
 
             <div className="mx-auto mt-10 grid max-w-3xl gap-3 sm:grid-cols-3">
@@ -56,9 +56,7 @@ export function SiteFooter() {
 
         <div className="mt-10 flex flex-col items-center justify-between gap-4 text-sm text-muted-foreground sm:flex-row">
           <div className="flex items-center gap-2.5">
-            <span className="flex size-7 overflow-hidden rounded-full ring-1 ring-primary/40">
-              <img src="/logo.png" alt="" width={28} height={28} className="size-full object-cover" />
-            </span>
+            <img src="/logo.png" alt="" width={640} height={447} loading="lazy" className="h-10 w-auto" />
             <span className="font-display font-bold tracking-[0.2em] text-foreground">BLASTX</span>
             <span>Dry Ice — Dubai, UAE</span>
           </div>

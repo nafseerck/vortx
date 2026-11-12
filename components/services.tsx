@@ -1,4 +1,4 @@
-import { ArrowUpRight, Car, BatteryCharging, Anchor, Plane, Factory, Truck } from 'lucide-react'
+import { ArrowUpRight, Car, Bike, BatteryCharging, Anchor, Plane, Factory } from 'lucide-react'
 import { SectionTitle } from '@/components/section-title'
 import { Reveal } from '@/components/reveal'
 import { Spotlight } from '@/components/spotlight'
@@ -13,12 +13,20 @@ const services = [
     span: 'md:col-span-4',
   },
   {
+    icon: Bike,
+    tag: 'Motorcycles',
+    title: 'Motorcycle detailing',
+    body: 'Engines, frames, chains and wheels cleaned into every fin and crevice — no water in the electrics, no teardown.',
+    image: '/images/dry-ice-pellets.png',
+    span: 'md:col-span-2',
+  },
+  {
     icon: BatteryCharging,
     tag: 'Electric',
     title: 'EV battery-safe cleaning',
     body: 'Strictly waterless and non-conductive — the only safe way to clean around battery compartments.',
     image: '/images/car-lift.png',
-    span: 'md:col-span-2',
+    span: 'md:col-span-3',
   },
   {
     icon: Anchor,
@@ -26,7 +34,7 @@ const services = [
     title: 'Hull & teak restoration',
     body: 'Salt, biofouling and corrosion lifted from hulls, engines and deck hardware with zero chemical runoff.',
     image: '/images/marine-yacht.jpg',
-    span: 'md:col-span-2',
+    span: 'md:col-span-3',
   },
   {
     icon: Plane,
@@ -42,7 +50,7 @@ const services = [
     title: 'Machinery & production lines',
     body: 'Molds, machinery and electrical cabinets cleaned in place, with no secondary waste and minimal downtime.',
     image: '/images/industrial.png',
-    span: 'md:col-span-2',
+    span: 'md:col-span-4',
   },
 ]
 
@@ -88,25 +96,6 @@ export function Services() {
             </Reveal>
           ))}
         </div>
-
-        <Reveal delay={120} className="mt-4">
-          <Spotlight className="glass flex flex-col gap-5 rounded-3xl p-6 sm:flex-row sm:items-center sm:p-8">
-            <span className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-primary/15 text-primary">
-              <Truck className="size-6" aria-hidden="true" />
-            </span>
-            <div className="flex-1">
-              <h3 className="text-xl font-bold">We come to you</h3>
-              <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                Fully self-contained mobile rigs set up in under 15 minutes — at your garage, marina berth,
-                hangar or factory floor, anywhere in the UAE.
-              </p>
-            </div>
-            <a href="#contact" className="btn-ghost shrink-0 px-5 py-3 text-sm">
-              Request a visit
-              <ArrowUpRight className="size-4" aria-hidden="true" />
-            </a>
-          </Spotlight>
-        </Reveal>
       </div>
     </section>
   )

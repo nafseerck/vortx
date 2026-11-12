@@ -51,13 +51,13 @@ export function BeforeAfter() {
             }}
           >
             <img
-              src="/images/transformation.png"
+              src="/images/gallery-engine.png"
               alt="Restored engine bay after BLASTX dry ice blasting"
               draggable={false}
               className="absolute inset-0 h-full w-full object-cover"
             />
             <img
-              src="/images/gallery-engine.png"
+              src="/images/engine-before.jpg"
               alt="Grease-covered engine bay before cleaning"
               draggable={false}
               className="absolute inset-0 h-full w-full object-cover"

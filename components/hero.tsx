@@ -20,7 +20,7 @@ const stats = [
   { value: 78.5, decimals: 1, prefix: '−', suffix: '°C', label: 'Blast temperature' },
   { value: 0, suffix: ' L', label: 'Water used' },
   { value: 100, suffix: '%', label: 'Residue-free' },
-  { value: 15, prefix: '<', suffix: ' min', label: 'Mobile setup' },
+  { value: 6, label: 'Industries served' },
 ]
 
 export function Hero() {
@@ -33,8 +33,8 @@ export function Hero() {
         <img src="/images/hero-vapor.png" alt="" className="kenburns h-full w-full object-cover opacity-55" />
         <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/40 to-background" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,var(--background)_85%)]" />
-        <div className="aurora -left-40 top-10 size-[520px] bg-cyan-400/25" />
-        <div className="aurora -right-40 bottom-0 size-[560px] bg-sky-600/25 [animation-delay:-9s]" />
+        <div className="aurora -left-40 top-10 size-[520px] bg-sky-400/25" />
+        <div className="aurora -right-40 bottom-0 size-[560px] bg-blue-600/25 [animation-delay:-9s]" />
         <div className="bg-grid absolute inset-0" />
         <IceField className="absolute inset-0" />
       </div>
@@ -63,7 +63,7 @@ export function Hero() {
           className="fade-up mt-8 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl"
           style={d(900)}
         >
-          BLASTX dry ice blasting restores hypercars, superyachts, aircraft and industrial machinery to
+          BLASTX dry ice blasting restores hypercars, motorcycles, superyachts, aircraft and industrial machinery to
           factory-new — no chemicals, no abrasion, nothing left behind but clean.
         </p>
 
